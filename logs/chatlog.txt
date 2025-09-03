@@ -1,0 +1,77 @@
+Sentiment: 0.00 | Feedback: hi
+Sentiment: -0.50 | Feedback: Iam sad
+Sentiment: -0.50 | Feedback: i am sad
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: why
+Sentiment: 0.00 | Feedback: do you know my name
+Sentiment: -0.50 | Feedback: Iam sad
+Sentiment: 0.00 | Feedback: what can you do
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.70 | Feedback: that's bad
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.70 | Feedback: That's bad
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.70 | Feedback: that's bad
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.70 | Feedback: that's bad
+Sentiment: 0.42 | Feedback: give reply like Iam fine
+Sentiment: 0.00 | Feedback: hi
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hi
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: hello chatbot
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hfhhvj
+Sentiment: 0.00 | Feedback: gcjhvjk
+Sentiment: 0.00 | Feedback: mnv
+Sentiment: 0.00 | Feedback: gjhgk
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello chatbot
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hii
+Sentiment: 0.00 | Feedback: my name is vaishnavi
+Sentiment: 0.00 | Feedback: hii
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: why
+Sentiment: -0.70 | Feedback: that,s bad
+Sentiment: 0.00 | Feedback: who are you
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: who are you
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: what is the time
+Sentiment: 0.00 | Feedback: what time is now
+Sentiment: 0.00 | Feedback: hello
+Sentiment: 0.00 | Feedback: what time is now
+Sentiment: 0.00 | Feedback: hiii
+Sentiment: 0.00 | Feedback: it's hii
+Sentiment: 0.00 | Feedback: hello
+Sentiment: -0.50 | Feedback: Iam sad
+Sentiment: 0.00 | Feedback: what time is now
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.50 | Feedback: update_q_table("That was wrong")
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.50 | Feedback: update_q_table("That was wrong")
+Sentiment: 0.00 | Feedback: how are you
+Sentiment: -0.50 | Feedback: "That was wrong"
+Sentiment: -0.50 | Feedback: "That was wrong"
+Sentiment: -0.50 | Feedback: "That was wrong"
+Sentiment: 0.33 | Feedback: "I'm fine, thanks!"

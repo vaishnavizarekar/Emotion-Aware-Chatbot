@@ -1,0 +1,48 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi", "hey","hii", "good morning"],
+      "responses": ["Hello!", "Hi there!", "Hey!", "Greetings!"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "see you", "goodbye"],
+      "responses": ["Goodbye!", "See you!", "Take care!"]
+    },
+    {
+      "tag": "sad",
+      "patterns": ["i am sad", "feeling low", "depressed", "not okay","i feel down", "iam sad", "upset", "unhappy", "feeling bad"
+]
+,
+      "responses": ["I'm here for you.", "Want to talk about it?", "Sending hugs!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "appreciate it"],
+      "responses": ["You're welcome!", "Glad I could help.", "Anytime!"]
+    },
+    {
+    "tag": "feedback",
+    "patterns": ["that's good", "that's bad", "you are wrong", "well done", "not helpful"],
+    "responses": ["Thanks for the feedback!", "I'll try to do better!", "Appreciate that!", "Noted."]
+    },
+    {
+  "tag": "time",
+  "patterns": [
+    "what time is it",
+    "tell me the time",
+    "current time",
+    "can you tell the time",
+    "what time is now","time"
+  ],
+  "responses": [
+    "It's {time} now.",
+    "The current time is {time}.",
+    "Right now it's {time}."
+  ]
+}
+
+
+  ]
+}

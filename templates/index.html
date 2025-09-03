@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced RL Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #fdfdfd;
+        }
+        #historyPanel {
+            width: 250px;
+            background-color: #f3f3f3;
+            padding: 10px;
+            overflow-y: auto;
+            border-right: 2px solid #ccc;
+        }
+        #mainPanel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        #chatbox {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #fff;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        #inputArea {
+            display: flex;
+            gap: 10px;
+        }
+        #inputArea input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #inputArea button {
+            padding: 10px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .sessionTitle {
+            cursor: pointer;
+            background-color: #f0f0f0;
+            padding: 5px;
+            margin-bottom: 5px;
+            border-left: 5px solid teal;
+        }
+        .sessionTitle:hover {
+            background-color: #d6f5f5;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #eee;
+        }
+        .dark-mode input,
+        .dark-mode button {
+            background: #333;
+            color: #fff;
+            border: 1px solid #666;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="margin: 10px;">🎓 Self-Learning Emotion-Aware Chatbot</h2>
+    <div style="display: flex; height: 80vh;">
+        <!-- Session History -->
+        <div id="historyPanel">
+            <h3>🕘 Chat Sessions</h3>
+            <div id="historyContent"></div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div id="mainPanel">
+            <div id="chatbox"></div>
+
+            <!-- Input and Buttons -->
+            <div id="inputArea">
+                <input id="msg" type="text" placeholder="Type your message..." onkeypress="handleKey(event)">
+                <button onclick="sendMsg()">Send</button>
+                <button onclick="voiceInput()">🎤 Speak</button>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <button onclick="downloadHistory()">📅 Export Chat</button>
+                <button onclick="clearSession()">🗑️ Clear Session</button>
+                <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+let currentSession = [];
+let allSessions = JSON.parse(localStorage.getItem("allSessions") || "[]");
+
+function speak(text) {
+    const synth = window.speechSynthesis;
+    synth.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    synth.speak(utter);
+}
+
+function sendMsg() {
+    const msgInput = document.getElementById("msg");
+    const msg = msgInput.value.trim();
+    if (!msg) return;
+
+    document.getElementById("chatbox").innerHTML += `<p><b>You:</b> ${msg}</p>`;
+    currentSession.push({ role: "user", text: msg });
+
+    fetch(`/get?msg=${encodeURIComponent(msg)}`)
+        .then(res => res.text())
+        .then(bot => {
+            document.getElementById("chatbox").innerHTML += `<p><b>Bot:</b> ${bot}</p>`;
+            currentSession.push({ role: "bot", text: bot });
+            speak(bot);
+            msgInput.value = "";
+            showFeedbackButtons();
+        });
+}
+
+function handleKey(e) {
+    if (e.key === "Enter") sendMsg();
+}
+
+function showFeedbackButtons() {
+    const feedbackHTML = `
+        <div id="feedbackSection">
+            <p>Was this helpful?</p>
+            <button onclick="sendFeedback(true)">👍</button>
+            <button onclick="sendFeedback(false)">👎</button>
+        </div>`;
+    document.getElementById("chatbox").innerHTML += feedbackHTML;
+}
+
+function sendFeedback(isPositive) {
+    fetch(`/get?msg=update_q_table(${isPositive ? "positive" : "negative"})`)
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("chatbox").innerHTML += `<p><i>${data}</i></p>`;
+            document.getElementById("feedbackSection").remove();
+        });
+}
+
+function voiceInput() {
+    if (!('webkitSpeechRecognition' in window)) {
+        alert("Your browser doesn't support speech recognition.");
+        return;
+    }
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.onresult = function (event) {
+        const voiceText = event.results[0][0].transcript;
+        document.getElementById("msg").value = voiceText;
+        sendMsg();
+    };
+    recognition.start();
+}
+
+function downloadHistory() {
+    const content = currentSession.map(e => `${e.role === 'user' ? 'You' : 'Bot'}: ${e.text}\n`).join("");
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "chat_history.txt";
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function clearSession() {
+    if (currentSession.length) {
+        allSessions.push({
+            title: `Chat ${allSessions.length + 1}`,
+            messages: currentSession
+        });
+        localStorage.setItem("allSessions", JSON.stringify(allSessions));
+        currentSession = [];
+        document.getElementById("chatbox").innerHTML = "";
+        loadSessionTitles();
+    }
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+function loadSessionTitles() {
+    const container = document.getElementById("historyContent");
+    container.innerHTML = "";
+    allSessions.forEach((session, index) => {
+        const title = document.createElement("div");
+        title.className = "sessionTitle";
+        title.innerHTML = `📂 <b>${session.title}</b>`;
+        title.onclick = () => openSession(index);
+        container.appendChild(title);
+    });
+}
+
+function openSession(index) {
+    const session = allSessions[index];
+    const content = session.messages.map(m => `<p><b>${m.role === "user" ? "🗣️ You" : "🤖 Bot"}:</b> ${m.text}</p>`).join("");
+    const popup = window.open("", "_blank", "width=600,height=600");
+    popup.document.write(`<html><head><title>${session.title}</title></head><body style="font-family:Arial;padding:10px;">${content}</body></html>`);
+}
+
+window.onload = loadSessionTitles;
+</script>
+</body>
+</html>
