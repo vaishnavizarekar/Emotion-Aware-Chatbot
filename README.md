@@ -51,7 +51,7 @@ A sophisticated web-based conversational AI system that detects and responds to 
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/Emotion-Aware-Chatbot.git
+git clone https://github.com//Emotion-Aware-Chatbot.git
 cd Emotion-Aware-Chatbot
 
 # Create virtual environment
@@ -87,7 +87,7 @@ Visit `http://localhost:5000` and start chatting! 🎉
 #### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Emotion-Aware-Chatbot.git
+git clone https://github.com/vaishnavizarekar/Emotion-Aware-Chatbot.git
 cd Emotion-Aware-Chatbot
 ```
 
@@ -993,7 +993,7 @@ This project is licensed under the **MIT License** - see `LICENSE` file for deta
 
 ## 👥 Authors & Credits
 
-- **Vaishnavi Zarekar** - Initial concept and development
+- **Your Name** - Initial concept and development
 - Contributors welcome!
 
 ### Acknowledgments
@@ -1011,7 +1011,7 @@ This project is licensed under the **MIT License** - see `LICENSE` file for deta
 
 - 🐛 **Issues**: [GitHub Issues](https://github.com/vaishnavizarekar/emotion-aware-chatbot/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/vaishnavizarekar/emotion-aware-chatbot/discussions)
-- 📧 **Email**: zarekarvaishnavi45@gmail.com
+- 📧 **Email**: support@example.com
 - 📚 **Docs**: See `docs/` directory
 
 ---
@@ -1076,3 +1076,5 @@ If you find this project useful, please consider:
 **Maintenance**: Regular updates and bug fixes
 
 ---
+
+*Made with ❤️ for emotion-aware AI*
