@@ -1009,9 +1009,9 @@ This project is licensed under the **MIT License** - see `LICENSE` file for deta
 
 ## 📞 Support
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/emotion-aware-chatbot/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/emotion-aware-chatbot/discussions)
-- 📧 **Email**: support@example.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/vaishnavizarekar/emotion-aware-chatbot/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/vaishnavizarekar/emotion-aware-chatbot/discussions)
+- 📧 **Email**: zarekarvaishnavi45@gmail.com
 - 📚 **Docs**: See `docs/` directory
 
 ---
